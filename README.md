@@ -48,6 +48,6 @@ Na guia Mídia, clique em adicionar. Defina:
 ```
 {TRIGGER.NAME} - {HOSTNAME} ({IPADDRESS})
 ```
-Marque o campo **Mensagem de recuperação** e defina o **Assunto da recuperação** como **RESOLVIDO**. A mensagem de recuperação deixe igual (se quiser, claro!) a mensagem padrão.
+* Marque o campo **Mensagem de recuperação** e defina o **Assunto da recuperação** como **RESOLVIDO**. A mensagem de recuperação deixe igual (se quiser, claro!) a mensagem padrão.
 * Na guia **Ações**, em **Operações da ação**, clique em **Nova**.
 defina, em **Detalhes da operação > Enviar para usuários**, clique em **Adicionar** e selecione **Pushbullet** e adicione a ação.
