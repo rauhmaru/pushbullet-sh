@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Pushpullet-zabbix by rauhmaru</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Pushpullet-zabbix</h1>
+        <p>Integração do Pushbullet com o Zabbix usando Shellscript</p>
+
+        <p class="view"><a href="https://github.com/rauhmaru/pushpullet-zabbix">View the Project on GitHub <small>rauhmaru/pushpullet-zabbix</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/rauhmaru/pushpullet-zabbix/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/rauhmaru/pushpullet-zabbix/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/rauhmaru/pushpullet-zabbix">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="integração-do-pushbullet-com-o-zabbix-usando-shellscript" class="anchor" href="#integra%C3%A7%C3%A3o-do-pushbullet-com-o-zabbix-usando-shellscript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integração do Pushbullet com o Zabbix usando Shellscript</h2>
+
+<h3>
+<a id="no-pushbullet" class="anchor" href="#no-pushbullet" aria-hidden="true"><span class="octicon octicon-link"></span></a>No Pushbullet</h3>
+
+<h4>
+<a id="conseguindo-o-token-no-pushbullet" class="anchor" href="#conseguindo-o-token-no-pushbullet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conseguindo o token no Pushbullet</h4>
+
+<p>Acesse o link <a href="https://www.pushbullet.com/#settings/account">account</a> e em <strong>Access Token</strong>, copie o seu token.</p>
+
+<h3>
+<a id="no-servidor-zabbix" class="anchor" href="#no-servidor-zabbix" aria-hidden="true"><span class="octicon octicon-link"></span></a>No Servidor Zabbix</h3>
+
+<p>Verifique qual o seu diretório de AlertScriptsPath e copie o script:</p>
+
+<p><code>grep ^AlertScript /etc/zabbix/zabbix_server.conf</code></p>
+
+<p>Por exemplo:</p>
+
+<pre><code>[root@finarfin tmp]# grep ^AlertScript /etc/zabbix/zabbix_server.conf
+AlertScriptsPath=/usr/lib/zabbix/alertscripts
+</code></pre>
+
+<p>Acesse esse diretório e baixe o script <a href="https://raw.githubusercontent.com/rauhmaru/pushbullet-sh/master/pushbullet.sh">pushbullet.sh</a>.
+Você pode:</p>
+
+<pre><code>wget https://raw.githubusercontent.com/rauhmaru/pushbullet-sh/master/pushbullet.sh
+chmod +x pushbullet.sh
+</code></pre>
+
+<h3>
+<a id="no-zabbix-web" class="anchor" href="#no-zabbix-web" aria-hidden="true"><span class="octicon octicon-link"></span></a>No Zabbix Web</h3>
+
+<h4>
+<a id="crie-o-tipo-de-mídia" class="anchor" href="#crie-o-tipo-de-m%C3%ADdia" aria-hidden="true"><span class="octicon octicon-link"></span></a>Crie o tipo de mídia:</h4>
+
+<p>Logado no Zabbix Server como Super-Administrador, clique em <strong>Administração</strong> &gt; <strong>Tipos de mídias</strong> e depois em <strong>Criar tipo de mídia</strong>.
+Então teremos:</p>
+
+<ul>
+<li>
+<strong>Nome:</strong> Pushbullet</li>
+<li>
+<strong>Tipo:</strong> Script</li>
+<li>
+<strong>Nome do script:</strong> pushbullet.sh</li>
+<li>
+<strong>Ativo:</strong> sim</li>
+</ul>
+
+<h4>
+<a id="crie-o-usuário-pushbullet" class="anchor" href="#crie-o-usu%C3%A1rio-pushbullet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Crie o usuário Pushbullet</h4>
+
+<p>Em <strong>Administração &gt; Usuários</strong>, clique em <strong>Criar usuário</strong>
+Na guia Usuário, defina o apelido <strong>Pushbullet</strong>. Fique a vontade com os outros parâmetros. Coloque-o em um grupo que tenha acesso as notificações que deseja emitir. O Zabbix administrators é uma sugestão.
+Na guia Mídia, clique em adicionar. Defina:</p>
+
+<ul>
+<li>
+<strong>Tipo:</strong> Pushbullet </li>
+<li>
+<strong>Enviar para:</strong> Esse campo não será usado. Preencha como quiser.</li>
+<li>
+<strong>Quando ativo:</strong> Período de notificação. O padrão é 24/7.</li>
+<li>
+<strong>Ativo:</strong> Sim</li>
+</ul>
+
+<h4>
+<a id="defina-as-ações" class="anchor" href="#defina-as-a%C3%A7%C3%B5es" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defina as ações</h4>
+
+<ul>
+<li>Na guia <strong>Configuração &gt; Ações</strong>, clique em <strong>Criar ação</strong>
+</li>
+<li>Na guia <strong>Ação</strong>, defina o nome <strong>Pushbullet</strong>.</li>
+<li>No campo <strong>Assunto padrão</strong>, defina <strong>PROBLEMA</strong>.</li>
+<li>No campo <strong>Mensagem padrão</strong>, defina, por exemplo:</li>
+</ul>
+
+<pre><code>{TRIGGER.NAME} - {HOSTNAME} ({IPADDRESS})
+</code></pre>
+
+<ul>
+<li>Marque o campo <strong>Mensagem de recuperação</strong> e defina o <strong>Assunto da recuperação</strong> como <strong>RESOLVIDO</strong>. A mensagem de recuperação deixe igual (se quiser, claro!) a mensagem padrão.</li>
+<li>Na guia <strong>Ações</strong>, em <strong>Operações da ação</strong>, clique em <strong>Nova</strong>.
+defina, em <strong>Detalhes da operação &gt; Enviar para usuários</strong>, clique em <strong>Adicionar</strong> e selecione <strong>Pushbullet</strong> e adicione a ação.</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/rauhmaru">rauhmaru</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
