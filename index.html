@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Pushpullet-zabbix by rauhmaru</title>
+    <title>Pushbullet-zabbix by rauhmaru</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
@@ -15,7 +15,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Pushpullet-zabbix</h1>
+        <h1>Pushbullet-zabbix</h1>
         <p>Integração do Pushbullet com o Zabbix usando Shellscript</p>
 
         <p class="view"><a href="https://github.com/rauhmaru/pushbullet-zabbix">View the Project on GitHub <small>rauhmaru/pushbullet-zabbix</small></a></p>
@@ -29,18 +29,18 @@
       </header>
       <section>
         <h2>
-<a id="integração-do-pushbullet-com-o-zabbix-usando-shellscript" class="anchor" href="#integra%C3%A7%C3%A3o-do-pushbullet-com-o-zabbix-usando-shellscript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integração do Pushbullet com o Zabbix usando Shellscript</h2>
+<a id="integração-do-pushbullet-com-o-zabbix-usando-shellscript" class="anchor" href="#integra%C3%A7%C3%A3o-do-pushbullet-com-o-zabbix-usando-shellscript" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integração do Pushbullet com o Zabbix usando Shellscript</h2>
 
 <h3>
-<a id="no-pushbullet" class="anchor" href="#no-pushbullet" aria-hidden="true"><span class="octicon octicon-link"></span></a>No Pushbullet</h3>
+<a id="no-pushbullet" class="anchor" href="#no-pushbullet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>No Pushbullet</h3>
 
 <h4>
-<a id="conseguindo-o-token-no-pushbullet" class="anchor" href="#conseguindo-o-token-no-pushbullet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conseguindo o token no Pushbullet</h4>
+<a id="conseguindo-o-token-no-pushbullet" class="anchor" href="#conseguindo-o-token-no-pushbullet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conseguindo o token no Pushbullet</h4>
 
 <p>Acesse o link <a href="https://www.pushbullet.com/#settings/account">account</a> e em <strong>Access Token</strong>, copie o seu token.</p>
 
 <h3>
-<a id="no-servidor-zabbix" class="anchor" href="#no-servidor-zabbix" aria-hidden="true"><span class="octicon octicon-link"></span></a>No Servidor Zabbix</h3>
+<a id="no-servidor-zabbix" class="anchor" href="#no-servidor-zabbix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>No Servidor Zabbix</h3>
 
 <p>Verifique qual o seu diretório de AlertScriptsPath e copie o script:</p>
 
@@ -60,10 +60,10 @@ chmod +x pushbullet.sh
 </code></pre>
 
 <h3>
-<a id="no-zabbix-web" class="anchor" href="#no-zabbix-web" aria-hidden="true"><span class="octicon octicon-link"></span></a>No Zabbix Web</h3>
+<a id="no-zabbix-web" class="anchor" href="#no-zabbix-web" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>No Zabbix Web</h3>
 
 <h4>
-<a id="crie-o-tipo-de-mídia" class="anchor" href="#crie-o-tipo-de-m%C3%ADdia" aria-hidden="true"><span class="octicon octicon-link"></span></a>Crie o tipo de mídia:</h4>
+<a id="crie-o-tipo-de-mídia" class="anchor" href="#crie-o-tipo-de-m%C3%ADdia" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Crie o tipo de mídia:</h4>
 
 <p>Logado no Zabbix Server como Super-Administrador, clique em <strong>Administração</strong> &gt; <strong>Tipos de mídias</strong> e depois em <strong>Criar tipo de mídia</strong>.
 Então teremos:</p>
@@ -80,7 +80,7 @@ Então teremos:</p>
 </ul>
 
 <h4>
-<a id="crie-o-usuário-pushbullet" class="anchor" href="#crie-o-usu%C3%A1rio-pushbullet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Crie o usuário Pushbullet</h4>
+<a id="crie-o-usuário-pushbullet" class="anchor" href="#crie-o-usu%C3%A1rio-pushbullet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Crie o usuário Pushbullet</h4>
 
 <p>Em <strong>Administração &gt; Usuários</strong>, clique em <strong>Criar usuário</strong>
 Na guia Usuário, defina o apelido <strong>Pushbullet</strong>. Fique a vontade com os outros parâmetros. Coloque-o em um grupo que tenha acesso as notificações que deseja emitir. O Zabbix administrators é uma sugestão.
@@ -98,7 +98,7 @@ Na guia Mídia, clique em adicionar. Defina:</p>
 </ul>
 
 <h4>
-<a id="defina-as-ações" class="anchor" href="#defina-as-a%C3%A7%C3%B5es" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defina as ações</h4>
+<a id="defina-as-ações" class="anchor" href="#defina-as-a%C3%A7%C3%B5es" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Defina as ações</h4>
 
 <ul>
 <li>Na guia <strong>Configuração &gt; Ações</strong>, clique em <strong>Criar ação</strong>
